@@ -1,0 +1,300 @@
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {  
+		 // match /{document=**} {
+		 // allow read, write: if true
+		 // }
+    
+    match /versions/{version} {
+    	allow write: if false;
+    	allow read: if true;
+    }
+    
+    match /accountImpact/{accountImpactId} {
+    	allow write: if false;
+    	allow read: if request.auth != null;
+    }
+
+ 
+    
+     match /accounts/{accountID} {
+    	allow read, write: if request.auth != null;
+    }
+
+		match /offers/{offerID} {
+    	allow read, write: if request.auth != null;
+    }
+
+
+    match /businessProfiles/{businessProfileID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+      match /frameworkItems/{frameworkItemID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+    		match /offers/{invoiceID} {
+    	allow read, write: if request.auth != null;
+    }
+
+    
+      match /orders/{orderID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+     match /projects/{businessProfileID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+     match /beneficiaryProjects/{beneficiaryProjectID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+      match /socialValueEvidence/{socialValueID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+    match /socialValue/{businessProfileID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+    match /events/{eventID} {
+    	allow read, write: if request.auth != null;
+    }
+
+    match /chats/{chatRoomID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+    match /bookings/{chatRoomID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+ 		match /chats/{chatRoomID}/messages/{messageID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+    match /community/{communityID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+    match /community_members/{communityID} {
+			allow read, write: if request.auth != null;
+    }
+
+    match /accounts/{accountId} {
+    	allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /auth/{authId} {
+    	allow read: if false;
+      allow delete: if false;
+      allow create, update: if request.auth != null;
+    }
+    
+    match /greetings/{greetingsId} {
+    	allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /badges/{badgeId} {
+    	allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /discountCodes/{discountCodeId} {
+    	allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /buyingGroupMemberships/{buyingGroupMembershipId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /buyingGroupOffers/{buyingGroupOfferId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /buyingGroupProducts/{buyingGroupProductId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /buyingGroupTypes/{buyingGroupTypeId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /biteTransactions/{biteTransactionId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /biteTypes/{biteTypeId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /chats/{chatId} {
+    	allow read, write: if request.auth != null;
+    }
+    
+    match /connections/{connectionId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /constants/{constantId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+      match /help/{helpId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+          match /helpCategories/{categoryID} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    
+     match /lauaNamesCodes/{lauaNamesCodeId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /lepNamesCodes/{lepNamesCodeId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /lm3/{lm3Id} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /newUsers/{newUsersId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /notificationFeeds/{notificationFeedId} {
+    	allow read, write: if request.auth != null;
+    }
+    
+       match /products/{productID} {
+    	allow read, write: if request.auth != null;
+    }
+    
+     match /popups/{popupID} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /postcodeData/{postcodeDataId} {
+      allow write: if false;
+    	allow read: if true;
+    }
+    
+		match /privacy/{privacyId} {
+      allow read, write: if false;
+    }
+
+    
+    match /recommendations/{userId} {
+     allow write: if request.auth != null; // Allow writes only if authenticated
+  allow read: if request.auth != null;
+}
+    
+    match /reviews/{reviewId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /saved/{savedId} {
+      allow read, write: if request.auth != null;
+    }
+    
+    match /seasonalCampaign/{seasonalCampaignId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /selfBillingInvoices/{selfBillingInvoiceId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /subscriptionLevels/{subscriptionLevelId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /subscriptions/{subscriptionId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /userVouchers/{userVoucherId} {
+     	allow write: if false;
+    	allow read: if request.auth != null;
+    }
+
+    match /users/{userId} {
+  allow write: if request.auth != null; // Allow writes only if authenticated
+  allow read: if request.auth != null;
+}
+
+    
+    match /venues/{venueId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /voucherCampaigns/{voucherCampaignId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /voucherMessages/{voucherMessageId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /voucherOrders/{voucherOrderId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /voucherTypes/{voucherTypeId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /vouchers/{voucherId} {
+      allow write: if false;
+    	allow read: if request.auth != null;
+    }
+    
+    match /webUsers/{webUserId} {
+      allow write: if false;
+    	allow read: if true;
+    }
+    
+    match /webContent/{webContentId} {
+    	allow write: if false;
+      allow read: if true
+    }
+    
+    match /xeroConfig/{xeroConfigId} {
+      allow read, write: if false;
+    }
+  }
+}
